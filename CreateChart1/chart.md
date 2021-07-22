@@ -56,4 +56,25 @@ values에 replica는 2지만 set 이 더 우선적으로 작용
 ```
 ![chart7](https://user-images.githubusercontent.com/50174803/126429341-71a7360c-f93f-49da-9bba-dade39fedc5c.PNG)
 ![chart8](https://user-images.githubusercontent.com/50174803/126429353-039ecbb1-dcd6-4dd5-aa77-fd5ce96c69f5.PNG)
-### 2. 
+
+### 2. 내장 객체
+![chart1](https://user-images.githubusercontent.com/50174803/126589753-a8e69f3d-0c5a-4102-a79c-23a637ce78fc.PNG)
+
+```
+[Configmap을 추가하여 확인]
+```
+![chart1-configmap](https://user-images.githubusercontent.com/50174803/126589765-edbcd370-2460-4b70-9cd0-3d46e98d12bf.PNG)
+
+```
+[불필요한 파일 templates 폴더에서 삭제]
+rm -rf deployment.yaml hpa.yaml ingress.yaml serviceaccount.yaml tests
+
+[Install]
+helm install mychart2 . -n sangwon-helm-study
+helm get manifest mychart2 -n sangwon-helm-study
+helm upgrade mychart2 . -n sangwon-helm-study
+
+YAML파일이 업데이트 되었다면, uninstall 후 install 하지 않고 upgrade 명령어 사용
+```
+![chart1-manifest](https://user-images.githubusercontent.com/50174803/126589929-19c96c08-e063-49e0-92d3-6122e85e7b11.PNG)
+![chart2](https://user-images.githubusercontent.com/50174803/126589937-a4a16727-9af4-4db0-bfbe-45b56e10ab5f.PNG)
